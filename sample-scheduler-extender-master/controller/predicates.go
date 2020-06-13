@@ -63,7 +63,7 @@ func podFitsOnNode(pod *v1.Pod, node v1.Node) (bool, []string, error) {
 }
 
 func LuckyPredicate(pod *v1.Pod, node v1.Node) (bool, []string, error) {
-	lucky := rand.Intn(1) == 0
+	lucky := rand.Intn(100) >= 50
 	if lucky {
 		log.Printf("pod %v/%v is lucky to fit on node %v\n", pod.Name, pod.Namespace, node.Name)
 		return true, nil, nil
